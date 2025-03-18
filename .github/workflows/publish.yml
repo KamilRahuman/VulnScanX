@@ -27,7 +27,11 @@ jobs:
 
       # Step 4: Build the package
       - name: Build package
-        run: python setup.py sdist bdist_wheel
+        run: |
+          ls -la  # Debug: List files in the working directory
+          cd VulnScanX  # Move into the correct directory
+          python setup.py sdist bdist_wheel
+
 
       # Step 5: Upload package to PyPI
       - name: Publish to PyPI

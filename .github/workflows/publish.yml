@@ -1,0 +1,37 @@
+name: Upload Python Package to PyPI
+
+on:
+  release:
+    types: [created]  # This triggers the workflow when a new release is created
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Runs the workflow on the latest Ubuntu environment
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Use a specific Python version
+
+      # Step 3: Install packaging tools
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install setuptools wheel twine  # Required for packaging and uploading
+
+      # Step 4: Build the package
+      - name: Build package
+        run: python setup.py sdist bdist_wheel
+
+      # Step 5: Upload package to PyPI
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: __token__  # PyPI authentication
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}  # API Token from GitHub Secrets
+        run: twine upload dist/*

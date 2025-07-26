@@ -1,6 +1,6 @@
 🛡️ VulnScanX - The Ultimate Cybersecurity Toolkit 🔍
 
-VulnScanX is a powerful all-in-one cybersecurity tool designed for ethical hackers, penetration testers, and security researchers. It automates various security assessments, including subdomain enumeration, vulnerability scanning, fuzzing, anomaly detection, and digital forensics.
+VulnScanX is a all-in-one cybersecurity tool designed for beginners who are starting up as ethical hackers, penetration testers, and security researchers. It automates various security assessments, including subdomain enumeration, vulnerability scanning, fuzzing, anomaly detection, and digital forensics.
 
 ✨ Features
 
